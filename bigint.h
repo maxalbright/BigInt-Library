@@ -1,3 +1,8 @@
+/* 
+See bigint.cpp for comments regarding each function
+Author: Max Albright
+*/
+
 #include <iostream>
 #include <string>
 #include <vector>
