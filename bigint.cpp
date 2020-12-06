@@ -22,7 +22,6 @@ BigInt::BigInt(int setbase){
         cout << "Invalid Base Error";
         return;
     }
-    /************* You complete *************/
     base = setbase;
     isPositive = true;
 }
@@ -38,7 +37,6 @@ BigInt::BigInt(int input,int setbase){
         cout << "Invalid Base Error";
         return;
     }
-    /************* You complete *************/
     base = setbase;
     //deal with negatives
     if (input < 0) {
@@ -70,7 +68,7 @@ BigInt::BigInt(const string &s, int setbase){
         cout << "Invalid Base Error";
         return;
     }
-    /************* You complete *************/
+    
     base = setbase;
     
     //deal with negatives
@@ -104,7 +102,6 @@ BigInt::BigInt(const string &s, int setbase){
 
 BigInt::BigInt(const BigInt &b){
 
-    /************* You complete *************/
     *this = b;
 }
 
@@ -118,7 +115,6 @@ BigInt::~BigInt(){}
 */
 string BigInt::to_string(){
 
-    /************* You complete *************/
     string output = "";
     for (int i=vec.size() - 1; i >= 0; i--) {
         if (vec[i] > 9) {
@@ -141,7 +137,6 @@ string BigInt::to_string(){
 */
 int BigInt::to_int() const{
 
-    /************* You complete *************/
 
     unsigned int total = 0;
     int based = 1;
@@ -261,7 +256,6 @@ int BigInt::compare(const BigInt &b) const{
 */
 const BigInt & BigInt::operator = (const BigInt &b){
 
-    /************* You complete *************/
 
     base = b.base;
     vec = b.vec;
@@ -278,7 +272,7 @@ const BigInt & BigInt::operator += (const BigInt &b){
         cout << "Invalid Base Exception";
         return *this;
     }
-    /************* You complete *************/
+    
     // The primary function deals with the subtraction of two positive
     // numbers 
   if (isPositive == b.isPositive) {
@@ -364,7 +358,7 @@ const BigInt & BigInt::operator -= (const BigInt &b){
         cout << "Invalid Base Error";
         return *this;
     }
-    /************* You complete *************/
+
     BigInt copyofB = b;
     // Calls addition if there is a negative
     if (!b.isPositive) {
@@ -465,7 +459,7 @@ const BigInt & BigInt::operator *= (const BigInt &b){
         cout << "Invalid Base Error";
         return *this;
     }
-    /************* You complete *************/
+
     int a_size = vec.size();
     int b_size = b.vec.size();
     vector<int>outputvector(a_size + b_size, 0);
@@ -550,7 +544,7 @@ const BigInt & BigInt::operator /= (const BigInt &b){
         cout << "Dividing by Zero Error";
         return *this;
     }
-    /************* You complete *************/
+
     BigInt remainder(base);
     BigInt quotient(base);
     divisionMain(b, quotient, remainder);
@@ -573,7 +567,7 @@ const BigInt & BigInt::operator %= (const BigInt &b){
         cout << "Dividing by Zero Error";
         return *this;
     }
-    /************* You complete *************/
+
     BigInt remainder(base);
     BigInt quotient(base);
     
@@ -694,7 +688,7 @@ const BigInt & BigInt::exponentiation(const BigInt &b){
         cout << "Dividing by Zero Error";
         return *this;
     }
-    /************* You complete *************/
+
     
     
     if (b.vec.size() == 1) {
@@ -746,7 +740,7 @@ const BigInt & BigInt::modulusExp(const BigInt &b, const BigInt &m){
         cout << "No Negative Exponents";
         return *this;
     }
-    /************* You complete *************/
+
     if (b.vec.size() == 1) {
         if (b.vec[0] == 0) {
             vector<int>one (1, 1);
@@ -767,7 +761,6 @@ const BigInt & BigInt::modulusExp(const BigInt &b, const BigInt &m){
     vector<int>onevec (1, 1);
     vec = onevec;
     
-    //does the main logic loop outlined in the instructions
  
     while (true){
         if ((n % two).to_int() == 0){
@@ -804,29 +797,25 @@ const BigInt & BigInt::modulusExp(const BigInt &b, const BigInt &m){
 //Calls the += function above to compute a BigInt whose value is a + b
 BigInt operator + (const  BigInt &a, const BigInt & b){
 
-    /************* You complete *************/
     BigInt temp = a;
     return temp+=b;
 }
 //Calls the -= function above to compute a BigInt whose value is a - b
 BigInt operator - (const  BigInt &a, const BigInt & b){
 
-    /************* You complete *************/
     BigInt temp = a;
     return temp -= b;
 }
 //Calls the *= function above to compute a BigInt whose value is a * b
 BigInt operator * (const  BigInt &a, const BigInt & b){
 
-    /************* You complete *************/
     BigInt temp = a;
     return temp *= b;   
 }
 
 //Calls the /= function above to compute a BigInt whose value is a / b
 BigInt operator / (const  BigInt &a, const BigInt & b){
-
-    /************* You complete *************/
+    
     BigInt temp = a;
     return temp /= b;
 }
@@ -834,22 +823,18 @@ BigInt operator / (const  BigInt &a, const BigInt & b){
 //Calls the %= function above to compute a BigInt whose value is a % b
 BigInt operator % (const  BigInt &a, const BigInt & b){
 
-    /************* You complete *************/
     BigInt temp = a;
     return temp %= b;
 }
 //Calls the exponentiation function above to compute a BigInt whose value is pow(a,b)
 BigInt pow(const  BigInt &a, const BigInt & b){
-
-    /************* You complete *************/
+    
   BigInt temp = a;
   return temp.exponentiation(b);
 }
 
 //Calls the modulusExp function above to compute a BigInt whose value is (a ^ b) mod c
 BigInt modPow(const BigInt &a, const BigInt &b, const BigInt &m){
-
-    /************* You complete *************/
 
     BigInt temp = a;
     return temp.modulusExp(b, m);
@@ -858,7 +843,6 @@ BigInt modPow(const BigInt &a, const BigInt &b, const BigInt &m){
 //Calls the compare function above to check if a == b
 bool operator == (const BigInt &a, const BigInt &b){
   
-    /************* You complete *************/
     if (a.compare(b) == 0) {
         return true;
     }
@@ -870,7 +854,6 @@ bool operator == (const BigInt &a, const BigInt &b){
 //Calls the compare function above to check if a != b
 bool operator != (const BigInt &a, const BigInt &b){
   
-    /************* You complete *************/
     if (a.compare(b) != 0) {
         return true;
     }
@@ -882,7 +865,6 @@ bool operator != (const BigInt &a, const BigInt &b){
 //Calls the compare function above to check if a <= b
 bool operator <= (const BigInt &a, const BigInt &b){
   
-    /************* You complete *************/
     if (a.compare(b) != 1) {
         return true;
     }
@@ -894,7 +876,6 @@ bool operator <= (const BigInt &a, const BigInt &b){
 //Calls the compare function above to check if a >= b
 bool operator >= (const BigInt &a, const BigInt &b){
   
-    /************* You complete *************/
     if (a.compare(b) != -1) {
         return true;
     }
@@ -906,7 +887,6 @@ bool operator >= (const BigInt &a, const BigInt &b){
 //Calls the compare function above to check if a > b
 bool operator > (const BigInt &a, const BigInt &b){
   
-    /************* You complete *************/
     if (a.compare(b) == 1) {
         return true;
     }
@@ -918,7 +898,6 @@ bool operator > (const BigInt &a, const BigInt &b){
 //Calls the compare function above to check if a < b
 bool operator < (const BigInt &a, const BigInt &b){
   
-    /************* You complete *************/
     if (a.compare(b) == -1) {
         return true;
     }
