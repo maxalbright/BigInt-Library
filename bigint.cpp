@@ -5,19 +5,17 @@
 using namespace std;
 
 /*
-//   Create a default BigInt with base 10.
+//   Creates a default BigInt with base 10.
 */
 BigInt::BigInt(){
     
-
-    /******** You complete ****************/
     base = 10;
     isPositive = true;
 
 }
 
 /*
-//  Create a BigInt with a specified base.
+//  Creates a BigInt with a specified base.
 */
 BigInt::BigInt(int setbase){
     if(setbase < 2 || setbase > 36){
@@ -30,8 +28,8 @@ BigInt::BigInt(int setbase){
 }
 
 /*
-//  Create a BigInt from int (base 10) with a specified base.
-//  Convert an int (base 10) into a specified base.
+//  Creates a BigInt from int (base 10) with a specified base.
+//  Converts an int (base 10) into a specified base.
 //  e.g., (10,2) <-- 10 base 10 to base 2 --> result:  BigInt with value 1010 base 2
 //  e.g., (100,16) <--- 100 base 10 to base 16 --> result: BigInt with value 64 base 16
 */
@@ -63,8 +61,8 @@ BigInt::BigInt(int input,int setbase){
 }
 
 /*
-//  Create a BigInt from string with a specified base.
-//  Assume that the string number input is in the same
+//  Creates a BigInt from string with a specified base.
+//  Assumes that the string number input is in the same
 //      base as the setbase input.
 */
 BigInt::BigInt(const string &s, int setbase){
@@ -101,7 +99,7 @@ BigInt::BigInt(const string &s, int setbase){
 }
 
 /*
-//  Create a BigInt from another BigInt.
+//  Creates a BigInt from another BigInt.
 */
 
 BigInt::BigInt(const BigInt &b){
@@ -137,7 +135,7 @@ string BigInt::to_string(){
 }
 
 /*
-//  Convert BigInt to integer base 10 and return that int
+//  Converts BigInt to integer base 10 and return that int
 //    If BigInt > INT_MAX, return INT_MAX.
 //    If BigInt < INT_MIN, return INT_MIN.
 */
